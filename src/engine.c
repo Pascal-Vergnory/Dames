@@ -3,7 +3,7 @@
 
 #include "engine.h"
 
-// Chess pieces
+// Checker pieces
 enum piece_t {
     TYPE    = 3,
     PAWN    = 1,
@@ -18,7 +18,7 @@ enum piece_t {
     STOP    = 16
 };
 
-// A chess board is the 64 squares playable area + a 2-squares thick border around it.
+// A checker board is the 5 squares per row times 10 rows, plus a few "dummy" squares to handle the borders.
 #define BOARD_AND_BORDER_SIZE 64
 #define BOARD_SIZE            56  // Smallest contiguous area we need to copy
 #define FIRST_BOARD_START     16  // Some border + mem aligment...
@@ -714,17 +714,11 @@ static int evaluate(int side)
     // Take the total of the values of the pieces present on the board
     return (side == BLACK) ? board_val[play] : -board_val[play];
 
-    // If pieces have been eaten at the horizon, this is risky, so
-    // remove half of the value of the eaten pieces ? TODO
-
     // Add strategic evaluation only if close to alpha and beta
     // if (side == BLACK) { if ( res > b + 170 ||  res < a - 170) return  res; }
     // else               { if (-res > b + 170 || -res < a - 170) return -res; }
 
     // Strategic criterions: TODO
-    // bonus for piece close to last line ? TODO
-    // Main diagonale occupancy ? TODO
-    // Sides occupancy ?
 }
 
 //------------------------------------------------------------------------------------
