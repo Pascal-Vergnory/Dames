@@ -7,7 +7,7 @@
 
 @gcc src/dames.c src/engine.c SDL2_image.dll SDL2_ttf.dll libfreetype-6.dll -o dames.exe -Wall -Wextra -Wpedantic -Wimplicit-fallthrough=0 -lmingw32 -lSDL2main -lSDL2 -O3 -s
 
-@del src/font_ttf.h
-@del src/pieces_svg.h
+@del src\font_ttf.h
+@del src\pieces_svg.h
 
 @echo.
