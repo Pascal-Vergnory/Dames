@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://wwwinkscapeorg/) -->
+
+<svg
+   width="240"
+   height="60"
+   viewBox="0 0 240 60"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs />
+  <g>
+    <!-- Black Pawn -->
+    <ellipse
+      style="fill:#000000;stroke:#ffffff;stroke-width:1.5"
+      ry="10"
+      rx="20"
+      cy="27"
+      cx="30" />
+    <path
+      style="fill:#000000;stroke:#ffffff;stroke-width:1.5"
+      d="m 10,27 c 0,6 10,10 20,10 10,0 20,-4 20,-10 l 0,10 c 0,4 -10,10 -20,10 -10,0 -20,-4 -20,-10 z" />
+
+    <!-- Black Queen -->
+    <ellipse
+      style="fill:#000000;stroke:#ffffff;stroke-width:1.5"
+      ry="10"
+      rx="20"
+      cy="23"
+      cx="90" />
+    <path
+      style="fill:#000000;stroke:#ffffff;stroke-width:1.5"
+      d="m 70,23 c 0,6 10,10 20,10 10,0 20,-4 20,-10 l 0,10 c 0,4 -10,10 -20,10 -10,0 -20,-4 -20,-10 z" />
+    <path
+      style="fill:#000000;stroke:#ffffff;stroke-width:1.5"
+      d="m 70,31 c 0,6 10,10 20,10 10,0 20,-4 20,-10 l 0,10 c 0,4 -10,10 -20,10 -10,0 -20,-4 -20,-10 z" />
+
+    <!-- White Pawn -->
+    <ellipse
+      style="fill:#ffffff;stroke:#000000;stroke-width:1.5"
+      ry="10"
+      rx="20"
+      cy="27"
+      cx="150" />
+    <path
+      style="fill:#ffffff;stroke:#000000;stroke-width:1.5"
+      d="m 130,27 c 0,6 10,10 20,10 10,0 20,-4 20,-10 l 0,10 c 0,4 -10,10 -20,10 -10,0 -20,-4 -20,-10 z" />
+
+    <!-- White Queen -->
+    <ellipse
+      style="fill:#ffffff;stroke:#000000;stroke-width:1.5"
+      ry="10"
+      rx="20"
+      cy="23"
+      cx="210" />
+    <path
+      style="fill:#ffffff;stroke:#000000;stroke-width:1.5"
+      d="m 190,23 c 0,6 10,10 20,10 10,0 20,-4 20,-10 l 0,10 c 0,4 -10,10 -20,10 -10,0 -20,-4 -20,-10 z" />
+    <path
+      style="fill:#ffffff;stroke:#000000;stroke-width:1.5"
+      d="m 190,31 c 0,6 10,10 20,10 10,0 20,-4 20,-10 l 0,10 c 0,4 -10,10 -20,10 -10,0 -20,-4 -20,-10 z" />
+  </g>
+</svg>
