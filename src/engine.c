@@ -420,7 +420,7 @@ void init_game(char *FEN_string)
     memset(table, 0, sizeof(table));       // Reset the transposition table
 
     if (FEN_string) FEN_to_board(FEN_string);
-    else FEN_to_board("ppppp/ppppp/ppppp/5/5/5/5/PPPPP/PPPPP/PPPPP w 0");
+    else FEN_to_board("ppppp/ppppp/ppppp/ppppp/5/5/PPPPP/PPPPP/PPPPP/PPPPP w 0");
 
     game_state     = WAIT_GS;
     time_budget_ms = 2000;
