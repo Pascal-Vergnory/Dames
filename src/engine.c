@@ -69,26 +69,26 @@ static int sq_to_c_table[] = {
 
 static int white_sq_val[] = {
    0, 0,  0,  0,  0,  0,
-   28, 29, 30, 29, 28, 0,
-     27, 28, 29, 28, 27,
-   25, 26, 27, 26, 25, 0,
-     22, 23, 24, 23, 22,
-   18, 19, 20, 19, 18, 0,
-     13, 13, 14, 13, 13,
-    7,  7,  8,  7,  7, 0,
+   28, 31, 32, 31, 28, 0,
+     27, 30, 32, 30, 27,
+   25, 28, 31, 28, 25, 0,
+     22, 25, 27, 25, 22,
+   18, 20, 22, 20, 18, 0,
+     13, 14, 15, 14, 13,
+    7,  7,  9,  7,  7, 0,
       0,  0,  0,  0,  0,
     0,  3,  3,  3,  3, 0};
 
 static int black_sq_val[] = {
   0,  3,  3,  3,  3,  0,
     0,  0,  0,  0,  0, 0,
-      7,  7,  8,  7,  7,
-   13, 13, 14, 13, 13, 0,
-     18, 19, 20, 19, 18,
-   22, 23, 24, 23, 22, 0,
-     25, 26, 27, 26, 25,
-   27, 28, 29, 28, 27, 0,
-     28, 29, 30, 29, 28,
+      7,  7,  9,  7,  7,
+   13, 14, 15, 14, 13, 0,
+     18, 20, 22, 20, 18,
+   22, 25, 27, 25, 22, 0,
+     25, 28, 31, 28, 25,
+   27, 30, 32, 30, 27, 0,
+     28, 31, 32, 31, 28,
     0,  0,  0,  0,  0, 0};
 
 
@@ -102,17 +102,17 @@ int game_state = WAIT_GS;
 int play            = 0;
 int nb_plays        = 0;
 int verbose         = 1;
-int randomize       = 0;
+int randomize       = 1;
 int level_max_max   = LEVEL_MAX;
 long time_budget_ms = 2000;
 static char engine_side;
 
 // The first moves we accept to play
 static const move_t first_ply[4] = {
-    {.sq[0] = 40, .sq[1] = 35, .sq[2] = 0},
-    {.sq[0] = 41, .sq[1] = 35, .sq[2] = 0},
-    {.sq[0] = 41, .sq[1] = 36, .sq[2] = 0},
-    {.sq[0] = 42, .sq[1] = 36, .sq[2] = 0}
+    {.sq[0] = 35, .sq[1] = 30, .sq[2] = 0},
+    {.sq[0] = 36, .sq[1] = 30, .sq[2] = 0},
+    {.sq[0] = 36, .sq[1] = 31, .sq[2] = 0},
+    {.sq[0] = 37, .sq[1] = 31, .sq[2] = 0}
 };
 
 static move_t *move_ptr;
@@ -425,7 +425,7 @@ void init_game(char *FEN_string)
     game_state     = WAIT_GS;
     time_budget_ms = 2000;
     total_ms       = 0;
-    randomize      = 0;
+    randomize      = 1;
     level_max_max  = LEVEL_MAX;
 }
 
