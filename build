@@ -8,7 +8,7 @@ echo "--------------------------------"
 # Compile bin_to_h.c for this (works also on Windows, contrarily to xxd)
 gcc src/bin_to_h.c -o bin_to_h
 ./bin_to_h resources/OptimusPrinceps.ttf src/font_ttf.h
-./bin_to_h resources/Chess_Pieces.svg src/pieces_svg.h
+./bin_to_h resources/Checker_Pieces.svg src/pieces_svg.h
 rm bin_to_h
 
 # For gdb replace -s option (strip) by -g (gdb)
