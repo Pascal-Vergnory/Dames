@@ -137,7 +137,6 @@ static int           mx, my;  // mouse position
 static int           side_view = 0;
 static int playing   = 0;
 
-
 static void exit_with_message(char* error_msg)
 {
     fprintf(stderr, "%s\n", error_msg);
@@ -556,15 +555,17 @@ static int handle_user_turn(char* move_str)
     move_t move;
     list_all_moves(list_of_moves);
 
+    int refresh = 1;
     while (1) {
         // Refresh the display
-        mouse_over = display_all(from, 0, 0);
+        if (refresh) mouse_over = display_all(from, 0, 0);
+        refresh = 0;
 
         // Check if a program sent us its move
         if (receive_move(move_str))
             if (try_move_str(move_str, list_of_moves)) return ANIM_GS;
 
-        SDL_Delay(10);
+        SDL_Delay(from ? 5 : 50);
 
         // Handle Mouse and keyboard events
         SDL_Event event;
@@ -572,8 +573,11 @@ static int handle_user_turn(char* move_str)
             // Event is 'Quit'
             if (event.type == SDL_QUIT) return QUIT_GS;
 
+            // Event is a mouse move
+            if (event.type == SDL_MOUSEMOTION) refresh = 2;
+
             // Event is a mouse click
-            if (event.type == SDL_MOUSEBUTTONDOWN) {
+            else if (event.type == SDL_MOUSEBUTTONDOWN) {
                 // handle mouse over a button
                 switch (mouse_over) {
                 case MOUSE_OVER_NEW:
@@ -595,10 +599,10 @@ static int handle_user_turn(char* move_str)
                     from = 0, step = 0;
                     break;
                 case MOUSE_OVER_RAND:
-                    randomize = !randomize;
+                    randomize = 1 - randomize;
                     break;
                 case MOUSE_OVER_VERB:
-                    verbose = !verbose;
+                    verbose = 1 - verbose;
                     break;
                 case MOUSE_OVER_QUIT:
                     return QUIT_GS;
@@ -608,6 +612,7 @@ static int handle_user_turn(char* move_str)
                 case MOUSE_OVER_BRD:
                     from = check_from(event.button.x, event.button.y, &move, &step, list_of_moves);
                 }
+                refresh = 3;
             }
             else if (event.type == SDL_MOUSEBUTTONUP && from) {
                 if (check_to(event.button.x, event.button.y, &move, &step, list_of_moves)) {
@@ -615,6 +620,7 @@ static int handle_user_turn(char* move_str)
                     return THINK_GS;
                 }
                 from = 0;
+                refresh = 4;
             }
 
             // Event is a keyboard input
@@ -638,12 +644,15 @@ static int handle_user_turn(char* move_str)
                     if (event.key.keysym.mod & KMOD_SHIFT) ch += ('A' - 'a');
                     debug_actions(ch);
                 }
+                refresh = 5;
             }
 
             // Event is a window resizing event
             else if (event.type == SDL_WINDOWEVENT) {
-                if (event.window.event == SDL_WINDOWEVENT_RESIZED)
+                if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
                     set_resizable_params(event.window.data1, event.window.data2);
+                    refresh = 6;
+                }
             }
         }
     }

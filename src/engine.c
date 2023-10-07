@@ -91,7 +91,6 @@ static int black_sq_val[] = {
      28, 31, 32, 31, 28,
     0,  0,  0,  0,  0, 0};
 
-
 static move_t best_sequence[LEVEL_MAX + 1], best_move[LEVEL_MAX + 1], next_best[LEVEL_MAX + 1];
 
 // Move choosen by the checker engine
@@ -238,7 +237,7 @@ void sq_to_lc(int sq, int *l, int *c)
 void print_board(char *brd)
 {
     int i;
-    printf("-- %3lld --------------------------\n  ", brd - BOARD0);
+    printf("-- %3d --------------------------\n  ", (int)(brd - BOARD0));
     for (i = -5; i < 1; i++) printf("%2d  ", (int)(*(brd + i)));
     printf("\n  ");
     for (; i < 6; i++) printf("  %2d", (int)(*(brd + i)));
@@ -709,7 +708,7 @@ int try_move_str(char *move_str, move_t *list_of_moves)
 // Board Evaluation
 //------------------------------------------------------------------------------------
 
-static int evaluate(int side)
+static inline int evaluate(int side)
 {
     // Take the total of the values of the pieces present on the board
     return (side == BLACK) ? board_val[play] : -board_val[play];
