@@ -17,7 +17,7 @@ Under Linux, gcc must be installed
 
 Under the two platforms, the GUI uses the SDL2 graphical library
 
-## Building chess and chessx
+## Building dames
 
 To build the two engines, use `build.bat` on Windows or `build` on Linux without any argument.
 
