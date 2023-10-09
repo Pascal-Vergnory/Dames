@@ -19,7 +19,7 @@ Under the two platforms, the GUI uses the SDL2 graphical library
 
 ## Building dames
 
-To build the two engines, use `build.bat` on Windows or `build` on Linux without any argument.
+To build the game, use `build.bat` on Windows or `./build` on Linux without any argument.
 
 ## Using dames (Linux), or dames.exe (Windows)
 
